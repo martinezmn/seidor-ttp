@@ -20,22 +20,25 @@ export class AutomovelController {
   constructor(private readonly automovelService: AutomovelService) {}
 
   @Get()
-  list(@Query() filtro?: ListAutomovelFiltroDto) {
+  async list(@Query() filtro?: ListAutomovelFiltroDto) {
     return this.automovelService.listAutomoveis(filtro);
   }
 
   @Get(':id')
-  get(@Param('id', ParseIntPipe) id: number) {
+  async get(@Param('id', ParseIntPipe) id: number) {
     return this.automovelService.getAutomovel(id);
   }
 
   @Post()
-  add(@Body() dto: AddAutomovelDto) {
+  async add(@Body() dto: AddAutomovelDto) {
     return this.automovelService.addAutomovel(dto);
   }
 
   @Put(':id')
-  edit(@Param('id', ParseIntPipe) id: number, @Body() dto: EditAutomovelDto) {
+  async edit(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: EditAutomovelDto,
+  ) {
     if (!dto) {
       throw new BadRequestException(['O corpo da requisição está vazio.']);
     }
@@ -43,7 +46,7 @@ export class AutomovelController {
   }
 
   @Delete(':id')
-  delete(@Param('id', ParseIntPipe) id: number) {
+  async delete(@Param('id', ParseIntPipe) id: number) {
     return this.automovelService.deleteAutomovel(id);
   }
 }

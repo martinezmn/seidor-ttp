@@ -155,6 +155,11 @@ describe('AutomovelController', () => {
         where: { placa: mockAutomovel.placa, id: { not: mockAutomovel.id } },
       });
     });
+
+    it('erro caso o body esteja vazio', async () => {
+      const result = controller.edit(mockAutomovel.id, undefined!);
+      await expect(result).rejects.toThrow(BadRequestException);
+    });
   });
 
   describe('delete', () => {
