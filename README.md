@@ -12,6 +12,9 @@
 ```bash
 # Iniciando o server com o docker
 $ docker compose up
+
+# Roda testes unitários
+$ npm run test:cov
 ```
 
 ## 🚀 Inicializando sem Docker
@@ -25,6 +28,9 @@ $ npx prisma migrate dev
 
 # Inicializa o server em dev mode
 $ npm run start:dev
+
+# Roda testes unitários
+$ npm run test:cov
 ```
 
 ## 🎮 Como usar
