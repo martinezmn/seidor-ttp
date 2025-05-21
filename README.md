@@ -7,11 +7,24 @@
 - [Docker](https://github.com/docker): Container node para facilitar o uso da API.
 - [Swagger](https://github.com/swagger-api): Documentação dos endpoints da API.
 
-## 🚀 Inicializando o APP
+## 🚀 Inicializando com Docker
 
 ```bash
 # Iniciando o server com o docker
 $ docker compose up
+```
+
+## 🚀 Inicializando sem Docker
+
+```bash
+# Instala dependencias do projeto
+$ npm install
+
+# Cria o banco de dados e as configurações do Prisma
+$ npx prisma migrate dev
+
+# Inicializa o server em dev mode
+$ npm run start:dev
 ```
 
 ## 🎮 Como usar
